@@ -66,15 +66,19 @@ function imdbRottenSearch(movieData){
 function getAverageCriticReview(movieData){
 
     var criticReviewRating =
-    parseFloat(movieData.tomatoCriticRating);
-		return criticReviewRating*10;
+    (parseFloat(movieData.tomatoCriticRating) +
+		parseFloat(movieData.IMDBRating))/2;
+		return Math.floor(criticReviewRating*10);
 }
 
 function getAverageAudienceReview(movieData){
     var averageAudienceReview =
-    (parseFloat(movieData.IMDBRating)*2 +
-    (parseFloat(movieData.tomatoUserRating) * 2) +
-    parseFloat(movieData.moviedbVoteAverage)) / 3;
+    (parseFloat(movieData.IMDBRating) +
+    (parseFloat(movieData.tomatoUserRating) * 2))/2;
+		console.log(movieData.moviedbVoteAverage);
+    if(movieData.moviedbVoteAverage != 0){
+			averageAudienceReview += movieData.moviedbVoteAverage * (1/3);
+		}
 
 		return averageAudienceReview*10;
 }
