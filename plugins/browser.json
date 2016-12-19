@@ -15,6 +15,12 @@
         },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.brandon.movieratings"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.brandon.movieratings"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.brandon.movieratings"
         }
     },
     "dependent_plugins": {}

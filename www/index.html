@@ -42,7 +42,21 @@
   <!-- Left panel with reveal effect-->
   <div class="panel panel-left panel-reveal">
       <div class="content-block">
-          <p>Left panel content goes here</p>
+          <p><center><h2>Version 1.0.0</h2>
+            Video game ratings/reviews coming soon!<br>
+          <p><h2>About</h2>
+            First place application developed by 5 college students for the CT Skills Challenge Finale</center>
+            <ul>
+              <li>Brandon Loehle <b>brandon.loehle@qu.edu</b></li>
+              <li>Matt Fisherman <b>matthew.fisherman@qu.edu</b></li>
+              <li>Alexander Thimineur <b>alexander.thimineur@qu.edu</b></li>
+              <li>Tyler Dresselhouse <b>tyler.dresselhouse@qu.edu</b></li>
+              <li>Anthony Dell'Agli <b>anthony.dell'agli@uconn.edu</b></li>
+            </ul>
+
+
+
+          </p>
       </div>
   </div>
 
@@ -90,14 +104,22 @@
                         <div id="container-rpm" style="width: 100%; height: 200px; float: left"></div>
                       </div>
 
-
-                      <!--ROTTON TOMOATOES-->
+                      <!--Movie Information-->
                       <div class="content-block-title">Movie Information</div>
                         <div class="content-block tablet-inset">
                           <div class="content-block-inner">
-                            <p id="rotTomatoes"></p>
+                            <p id="movieInformation"></p>
                           </div>
                         </div>
+
+                        <!--ROTTON TOMOATOES-->
+                        <div class="content-block-title">Movie Reviews</div>
+                          <div class="content-block tablet-inset">
+                            <div class="content-block-inner">
+                              <p id="nytReviews"></p>
+                            </div>
+                          </div>
+
                       </div>
                   </div>
               </div>
@@ -114,6 +136,7 @@
 
 
   <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="js/movieData.js"></script>
   <script type="text/javascript" src="js/my-app.js"></script>
 </body>

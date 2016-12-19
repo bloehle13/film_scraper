@@ -15,6 +15,10 @@ var mainView = myApp.addView('.view-main', {
 $(document).ready(function() {
   var gaugeOptions = {
 
+        credits: {//remove highcharts.com from the chart
+          enabled: false
+        },
+
         chart: {
             type: 'solidgauge'
         },
@@ -165,8 +169,7 @@ function updateInfoIMDB(info){
 }
 
 function updateInfoRotTot(data){
-  document.getElementById("rotTomatoes").innerHTML =
-
+  document.getElementById("movieInformation").innerHTML =
 			"<b>Title:</b> " + data.Title + "<br>" +
 			"<b>Actors:</b> " +data.Actors + "<br>" +
 			"<b>Director:</b> " +data.Director + "<br>" +
@@ -184,31 +187,34 @@ function updateInfoRotTot(data){
   ;
 }
 
-function updateInfoMovieDB(data){
-  document.getElementById("movieDB").innerHTML =
-			"<b>The MovieDB Popularity: </b> " + data.results[0].popularity + "<br>" +
-			"<b>The MovieDB Vote Average: </b> " + data.results[0].vote_average + "<br>" +
-			"<b>The MovieDB Vote Count: </b> " + data.results[0].vote_count;
-
+function updateInfoNYTimes(reviews){//takes in array of reviews
+  console.log(reviews.length);
+  document.getElementById('nytReviews').innerHTML = ' ';//clear out any reveiws from prior searches
+  if(reviews.length === 0){
+    document.getElementById('nytReviews').innerHTML = 'No reviews found!';
+  }
+  else{
+    for(i=0;i<reviews.length;i++){
+      var review = reviews[i];
+          let thumb = "";
+          if(review.critics_pick)
+            thumb = "&#128077; "
+          else
+            thumb = "&#128078; "
+          document.getElementById('nytReviews').innerHTML += "<p>" +
+            "<b>Headline: </b> " + thumb + review.headline + "<br>"+
+            "<b>Author: </b> " + review.byline + "<br>" +
+            "<b>Published: </b> " + review.publication_date + "<br>"+
+            "<b>Summary: </b> " + review.summary_short + "<br>"+
+            "<a href='#' onclick='summaryLink(" + '"' + review.link.url + '"' + ")'><b>Read More </b> </a>"+
+            "</p>";
+      }
+  }
 }
 
-function updateInfoNYTimes(result){
-  let reviews = document.getElementById('nyt')
-  for(i=0;i<result.results.length;i++){
-  let review = result.results[i];
-	    	let thumb = "";
-	    	if(review.critics_pick)
-	    		thumb = "&#128077; "
-	    	else
-	    		thumb = "&#128078; "
-	    	reviews.innerHTML += "<p>" +
-	    		"<b>Headline: </b> " + thumb + review.headline + "<br>"+
-	    		"<b>Author: </b> " + review.byline + "<br>" +
-	    		"<b>Published: </b> " + review.publication_date + "<br>"+
-	    		"<b>Summary: </b> " + review.summary_short + "<br>"+
-	    		"<a href='" +review.link.url + "'><b>Read More </b> </a>"+
-	    		"</p>";
-        }
+function summaryLink(link){
+  cordova.InAppBrowser.open(link, '_blank', 'location=yes');
+  //window.open("http://www.google.com", '_system');
 }
 
 $$(document).on('deviceready', function() {

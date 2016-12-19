@@ -24,8 +24,7 @@ var movieData =
 function getMovieData(title) {
 	movieData.movieName = title;
 	imdbRottenSearch(movieData);
-
-	return movieData;
+	NYTSearch(movieData);
 }
 
 function movieDBSearch(movieData){
@@ -41,6 +40,15 @@ function imdbRottenSearch(movieData){
 	var imdbTomatoSearch = 'http://www.omdbapi.com/?t=' + movieData.movieName + '&y=&plot=short&tomatoes=true&r=json';
 	$.getJSON( imdbTomatoSearch, function(data) {
 
+		if(data.Title === undefined){
+			alert('No movie found. Are you typing in the correct title?');
+		}
+		else{
+			if(data.Title.toLowerCase() !== movieData.movieName.toLowerCase()){
+				alert('The title of the movie searched does not match the results. Are you'
+				+ ' typing in the correct title?')
+			}
+		}
 		movieData.title = data.Title;
 		movieData.actors = data.Actors;
 		movieData.director = data.Director;
@@ -64,29 +72,37 @@ function imdbRottenSearch(movieData){
 }
 
 function getAverageCriticReview(movieData){
-
-    var criticReviewRating =
-    (parseFloat(movieData.tomatoCriticRating) +
-		parseFloat(movieData.IMDBRating))/2;
-		return Math.floor(criticReviewRating*10);
+		if(movieData.title !== undefined){//check if actual movie was found
+			var criticReviewRating =
+			(parseFloat(movieData.tomatoCriticRating) +
+			parseFloat(movieData.IMDBRating))/2;
+			return Math.floor(criticReviewRating*10);
+		}
+		else{
+			return 0;
+		}
 }
 
 function getAverageAudienceReview(movieData){
-    var averageAudienceReview =
-    (parseFloat(movieData.IMDBRating) +
-    (parseFloat(movieData.tomatoUserRating) * 2))/2;
-		console.log(movieData.moviedbVoteAverage);
-    if(movieData.moviedbVoteAverage != 0){
-			averageAudienceReview += movieData.moviedbVoteAverage * (1/3);
-		}
+		if(movieData.title !== undefined){//check if actual movie was found
+			var averageAudienceReview =
+			(parseFloat(movieData.IMDBRating) +
+			(parseFloat(movieData.tomatoUserRating) * 2))/2;
+			console.log(movieData.moviedbVoteAverage);
+			if(movieData.moviedbVoteAverage != 0){
+				averageAudienceReview += movieData.moviedbVoteAverage * (1/3);
+			}
 
-		return averageAudienceReview*10;
+			return averageAudienceReview*10;
+		}
+		else{
+			return 0;
+		}
 }
 
-var NewYorkTimesReviews = []
+function NYTSearch(movieData){
 
-var NYTSearch = function(movieData){
-
+	var newYorkTimesReviews = []
 	var nytUrl = "https://api.nytimes.com/svc/movies/v2/reviews/search.json";
 
 	nytUrl += '?' + $.param({
@@ -96,28 +112,16 @@ var NYTSearch = function(movieData){
 
 	$.ajax({
 	  url: nytUrl,
+		data: 'jsonp',
 	  method: 'GET',
 	}).done(function(result) {
 		console.log(result);
-	  if(result.results.num_results)
-	  	NewYorkTimesReviews = result.results;
-	    var picks = 0;
-	    var reviews = document.getElementById("nytimes-reviews");
-	    for(i=0; i<result.results.length; i++){
-	    	picks += result.results[i].critics_pick;
-	    	var review = result.results[i];
-	    	var thumb = "";
-
-	    	if(review.critics_pick)
-	    		thumb = "&#128077; "
-	    	else
-	    		thumb = "&#128078; "
-	    }
-	  	movieData.nytimesCriticApprovals = picks;
-	  	movieData.nytimesNumberOfCritics = result.results.length;
-			updateInfoNYTimes(result);
+	  for(var i = 0; i < result.num_results; i++){
+			newYorkTimesReviews[i] = result.results[i];
+		}
+		updateInfoNYTimes(newYorkTimesReviews);
 	}).fail(function(err) {
-	  throw err;
+		updateInfoNYTimes(newYorkTimesReviews);
 	});
 
 }
