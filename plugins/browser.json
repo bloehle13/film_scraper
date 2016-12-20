@@ -21,7 +21,20 @@
         },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.brandon.movieratings"
+        },
+        "cordova-plugin-admobpro": {
+            "PACKAGE_NAME": "com.brandon.movieratings"
+        },
+        "cordova-plugin-admob": {
+            "PACKAGE_NAME": "com.brandon.movieratings"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-extension": {
+            "PACKAGE_NAME": "com.brandon.movieratings"
+        },
+        "cordova-admobsdk": {
+            "PACKAGE_NAME": "com.brandon.movieratings"
+        }
+    }
 }

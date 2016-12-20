@@ -38,6 +38,22 @@ module.exports = [
         "id": "cordova-plugin-device.DeviceProxy",
         "pluginId": "cordova-plugin-device",
         "runs": true
+    },
+    {
+        "file": "plugins/cordova-plugin-admobpro/www/AdMob.js",
+        "id": "cordova-plugin-admobpro.AdMob",
+        "pluginId": "cordova-plugin-admobpro",
+        "clobbers": [
+            "window.AdMob"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-admob/www/AdMob.js",
+        "id": "cordova-plugin-admob.AdMob",
+        "pluginId": "cordova-plugin-admob",
+        "clobbers": [
+            "window.plugins.AdMob"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -47,7 +63,11 @@ module.exports.metadata =
     "cordova-plugin-console": "1.0.4",
     "cordova-plugin-statusbar": "1.0.1",
     "cordova-plugin-inappbrowser": "1.6.1",
-    "cordova-plugin-device": "1.1.4"
+    "cordova-plugin-device": "1.1.4",
+    "cordova-plugin-extension": "1.5.1",
+    "cordova-plugin-admobpro": "2.25.0",
+    "cordova-plugin-admob": "3.2.4",
+    "cordova-admobsdk": "1.0.4"
 }
 // BOTTOM OF METADATA
 });
