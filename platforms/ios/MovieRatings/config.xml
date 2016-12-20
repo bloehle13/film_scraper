@@ -15,13 +15,6 @@
         <param name="ios-package" value="CDVGestureHandler" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="AdMob">
-        <param name="ios-package" value="CDVAdMob" />
-    </feature>
-    <feature name="AdMob">
-        <param name="ios-package" value="CDVAdMobPlugin" />
-        <param name="onload" value="true" />
-    </feature>
     <feature name="Console">
         <param name="ios-package" value="CDVLogger" />
     </feature>
@@ -34,6 +27,12 @@
     <feature name="StatusBar">
         <param name="ios-package" value="CDVStatusBar" />
         <param name="onload" value="true" />
+    </feature>
+    <feature name="connectivity">
+        <param name="ios-package" value="CDVAppFeelReachability" />
+    </feature>
+    <feature name="AdMobAds">
+        <param name="ios-package" value="CDVAdMobAds" />
     </feature>
     <name>MovieRatings</name>
     <description>

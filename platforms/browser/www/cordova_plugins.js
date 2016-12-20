@@ -40,19 +40,20 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/cordova-plugin-admobpro/www/AdMob.js",
-        "id": "cordova-plugin-admobpro.AdMob",
-        "pluginId": "cordova-plugin-admobpro",
+        "file": "plugins/cordova-connectivity-monitor/www/connectivity.js",
+        "id": "cordova-connectivity-monitor.connectivity",
+        "pluginId": "cordova-connectivity-monitor",
         "clobbers": [
-            "window.AdMob"
+            "window.connectivity"
         ]
     },
     {
-        "file": "plugins/cordova-plugin-admob/www/AdMob.js",
-        "id": "cordova-plugin-admob.AdMob",
-        "pluginId": "cordova-plugin-admob",
+        "file": "plugins/cordova-admob/www/admob.js",
+        "id": "cordova-admob.AdMobAds",
+        "pluginId": "cordova-admob",
         "clobbers": [
-            "window.plugins.AdMob"
+            "window.admob",
+            "window.tappx"
         ]
     }
 ];
@@ -64,10 +65,8 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "1.0.1",
     "cordova-plugin-inappbrowser": "1.6.1",
     "cordova-plugin-device": "1.1.4",
-    "cordova-plugin-extension": "1.5.1",
-    "cordova-plugin-admobpro": "2.25.0",
-    "cordova-plugin-admob": "3.2.4",
-    "cordova-admobsdk": "1.0.4"
+    "cordova-connectivity-monitor": "1.2.2",
+    "cordova-admob": "4.1.16"
 }
 // BOTTOM OF METADATA
 });
