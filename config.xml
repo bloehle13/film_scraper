@@ -32,6 +32,6 @@
     <plugin name="cordova-admob" spec="~4.1.16" />
     <plugin name="cordova-admobsdk" spec="~1.0.4" />
     <plugin name="cordova-connectivity-monitor" spec="~1.2.2" />
-    <plugin name="cordove-libgoogleadmobads" spec="~7.13.1" />
+    <plugin name="cordova-libgoogleadmobads" spec="~7.13.1" />
 
 </widget>
