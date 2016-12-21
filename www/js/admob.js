@@ -46,7 +46,6 @@ if(( /(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent) )) {
 function prepareAd(){
   AdMob.prepareInterstitial({
     adId: admobid.interstitial,
-    isTesting: true, // TODO: remove this line when release
     autoShow: false
   });
 }
