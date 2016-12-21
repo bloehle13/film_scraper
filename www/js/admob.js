@@ -26,6 +26,7 @@ function initApp() {
     position: AdMob.AD_POSITION.BOTTOM_CENTER,
     overlap: false,
     offsetTopBar: false,
+    autoshow: true,
     bgColor: 'black'
   } );
 
