@@ -20,22 +20,21 @@ if( /(android)/i.test(navigator.userAgent) ) {
 
 function initApp() {
   if (!AdMob) { alert( 'admob plugin not ready' ); return; }
-  // this will create a banner on startup
+  // this will load a full screen ad on startup
+  AdMob.prepareInterstitial({
+    adId: admobid.interstitial,
+    autoShow: true
+  });
+
   AdMob.createBanner( {
     adId: admobid.banner,
     position: AdMob.AD_POSITION.BOTTOM_CENTER,
     overlap: false,
     offsetTopBar: false,
     autoshow: true,
-    isTesting: true,
+    isTesting: false,
     bgColor: 'black'
   } );
-
-  // this will load a full screen ad on startup
-  AdMob.prepareInterstitial({
-    adId: admobid.interstitial,
-    autoShow: true
-  });
 
 }
 
