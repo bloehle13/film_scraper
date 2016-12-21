@@ -27,6 +27,7 @@ function initApp() {
     overlap: false,
     offsetTopBar: false,
     autoshow: true,
+    isTesting: true,
     bgColor: 'black'
   } );
 
