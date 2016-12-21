@@ -19,8 +19,9 @@ if( /(android)/i.test(navigator.userAgent) ) {
 }
 
 function initApp() {
+  alert('before admob');
   if (!AdMob) { alert( 'admob plugin not ready' ); return; }
-
+  alert('after admob');
   // this will create a banner on startup
   AdMob.createBanner( {
     adId: admobid.banner,
@@ -37,10 +38,23 @@ function initApp() {
     isTesting: true, // TODO: remove this line when release
     autoShow: true
   });
+
 }
 
 if(( /(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent) )) {
     document.addEventListener('deviceready', initApp, false);
 } else {
     initApp();
+}
+
+function prepareAd(){
+  AdMob.prepareInterstitial({
+    adId: admobid.interstitial,
+    isTesting: true, // TODO: remove this line when release
+    autoShow: false
+  });
+}
+
+function showAd(){
+  if(AdMob) AdMob.showInterstitial();
 }

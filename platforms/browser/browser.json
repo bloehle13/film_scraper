@@ -44,6 +44,12 @@
         },
         "cordova-admobsdk": {
             "PACKAGE_NAME": "com.brandon.movieratings"
+        },
+        "cordova-admob": {
+            "PACKAGE_NAME": "com.brandon.movieratings"
+        },
+        "cordova-connectivity-monitor": {
+            "PACKAGE_NAME": "com.brandon.movieratings"
         }
     },
     "dependent_plugins": {},
@@ -102,6 +108,23 @@
             "clobbers": [
                 "window.plugins.AdMob"
             ]
+        },
+        {
+            "file": "plugins/cordova-admob/www/admob.js",
+            "id": "cordova-admob.AdMobAds",
+            "pluginId": "cordova-admob",
+            "clobbers": [
+                "window.admob",
+                "window.tappx"
+            ]
+        },
+        {
+            "file": "plugins/cordova-connectivity-monitor/www/connectivity.js",
+            "id": "cordova-connectivity-monitor.connectivity",
+            "pluginId": "cordova-connectivity-monitor",
+            "clobbers": [
+                "window.connectivity"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -113,6 +136,8 @@
         "cordova-plugin-extension": "1.5.1",
         "cordova-plugin-admobpro": "2.25.0",
         "cordova-plugin-admob": "3.2.4",
-        "cordova-admobsdk": "1.0.4"
+        "cordova-admobsdk": "1.0.4",
+        "cordova-admob": "4.1.16",
+        "cordova-connectivity-monitor": "1.2.2"
     }
 }

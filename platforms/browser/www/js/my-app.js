@@ -143,10 +143,18 @@ $("#movieTitleInput").on("keypress", function(event){
   }
 });
 
+var totalSearches = 0; //used to show ads. Every 3 searches = ad
 
 function searchMovie(){
   var title = $('#movieTitleInput').val();
   var movieData = getMovieData(title);
+  totalSearches++;
+  if(totalSearches % 3 === 0){
+    showAd();
+  }
+  else if(totalSearches % 3 === 1){
+    prepareAd();
+  }
 }
 
 function updateFanRating(value){

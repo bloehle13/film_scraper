@@ -7,12 +7,27 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-admob": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.brandon.movieratings"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.brandon.movieratings"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.brandon.movieratings"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.brandon.movieratings"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.brandon.movieratings"
+        },
+        "cordova-plugin-admobpro": {
             "PACKAGE_NAME": "com.brandon.movieratings"
         }
     },
     "dependent_plugins": {
-        "cordova-connectivity-monitor": {
+        "cordova-plugin-extension": {
             "PACKAGE_NAME": "com.brandon.movieratings"
         }
     }
