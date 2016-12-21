@@ -3,8 +3,8 @@ var admobid = {};
 // TODO: replace the following ad units with your own
 if( /(android)/i.test(navigator.userAgent) ) {
   admobid = { // for Android
-    banner: 'ca-app-pub-6869992474017983/9375997553',
-    interstitial: 'ca-app-pub-6869992474017983/1657046752'
+    banner: 'ca-app-pub-2641444780553413/2469205087',
+    interstitial: 'ca-app-pub-2641444780553413/5276397480'
   };
 } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
   admobid = { // for iOS
@@ -19,25 +19,22 @@ if( /(android)/i.test(navigator.userAgent) ) {
 }
 
 function initApp() {
-  alert('before admob');
   if (!AdMob) { alert( 'admob plugin not ready' ); return; }
-  alert('after admob');
-  // this will create a banner on startup
-  AdMob.createBanner( {
-    adId: admobid.banner,
-    position: AdMob.AD_POSITION.BOTTOM_CENTER,
-    isTesting: true, // TODO: remove this line when release
-    overlap: false,
-    offsetTopBar: false,
-    bgColor: 'black'
-  } );
-
   // this will load a full screen ad on startup
   AdMob.prepareInterstitial({
     adId: admobid.interstitial,
-    isTesting: true, // TODO: remove this line when release
     autoShow: true
   });
+
+  AdMob.createBanner( {
+    adId: admobid.banner,
+    position: AdMob.AD_POSITION.BOTTOM_CENTER,
+    overlap: false,
+    offsetTopBar: false,
+    autoshow: true,
+    isTesting: false,
+    bgColor: 'black'
+  } );
 
 }
 
@@ -50,7 +47,6 @@ if(( /(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent) )) {
 function prepareAd(){
   AdMob.prepareInterstitial({
     adId: admobid.interstitial,
-    isTesting: true, // TODO: remove this line when release
     autoShow: false
   });
 }

@@ -152,7 +152,7 @@ function searchMovie(){
   if(totalSearches % 3 === 0){
     showAd();
   }
-  else if(totalSearches % 3 === 1){
+  else if(totalSearches % 3 === 1){//arbitrary so that ad is always loaded
     prepareAd();
   }
 }
