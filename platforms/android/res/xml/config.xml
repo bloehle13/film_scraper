@@ -18,9 +18,9 @@
         <param name="android-package" value="com.rjfun.cordova.admob.AdMobPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <name>MovieRatings</name>
+    <name>Film Scraper</name>
     <description>
-        A basic Framework7 template for PhoneGap.
+        Search for any movie and get instant ratings, reviews, and other feedback.
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
